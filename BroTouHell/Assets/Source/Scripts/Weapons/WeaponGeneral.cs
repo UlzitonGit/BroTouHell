@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public abstract class WeaponGeneral : MonoBehaviour
 {
@@ -9,7 +10,13 @@ public abstract class WeaponGeneral : MonoBehaviour
      [SerializeField] protected float _rotationSpeed;
      [SerializeField] protected float _damage;
      [SerializeField] protected GameObject _hitVfx;
+     [SerializeField] protected TimeDilation _timeDilation;
 
+     [Inject]
+     private void Constructor(TimeDilation timeDilation)
+     {
+        _timeDilation = timeDilation;
+     }
      protected virtual void Update()
      {
           Rotating();
@@ -30,6 +37,7 @@ public abstract class WeaponGeneral : MonoBehaviour
           {
                print("Hit");
                other.GetComponent<HealthGeneral>().GetDamage(_damage);
+               _timeDilation.StartDilation();
                Instantiate(_hitVfx, other.transform.position, _rotationPoint.rotation);
                ScaleStats();
           }
