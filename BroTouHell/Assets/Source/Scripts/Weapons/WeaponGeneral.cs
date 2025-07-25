@@ -10,7 +10,15 @@ public abstract class WeaponGeneral : MonoBehaviour
      [SerializeField] protected float _rotationSpeed;
      [SerializeField] protected float _damage;
      [SerializeField] protected GameObject _hitVfx;
+<<<<<<< HEAD
      [SerializeField] protected TimeDilation _timeDilation;
+=======
+<<<<<<< Updated upstream
+=======
+     [SerializeField] protected ParticleSystem _parryVfx;
+     [SerializeField] protected TimeDilation _timeDilation;
+>>>>>>> Stashed changes
+>>>>>>> VFX
 
      [Inject]
      private void Constructor(TimeDilation timeDilation)
@@ -29,6 +37,7 @@ public abstract class WeaponGeneral : MonoBehaviour
      protected virtual void Parry()
      {
           _rotationSpeed = _rotationSpeed * -1;
+          _parryVfx.Play();
      }
 
      private void OnTriggerEnter(Collider other)
