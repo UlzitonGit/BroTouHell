@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Transform _graphicTransform;
+    [SerializeField] bool _isPlayer;
     private Rigidbody _rb;
     void Start()
     {
@@ -17,5 +18,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _graphicTransform.rotation = Quaternion.LookRotation (_rb.linearVelocity);
+    }
+
+    public bool GetIsPlayer()
+    {
+        return _isPlayer;
     }
 }

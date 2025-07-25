@@ -7,7 +7,6 @@ public class Sword : WeaponGeneral
     {
         _damage += _scalePower;
     }
-
     protected override void DealDamage(Collider other)
     {
         if (other.CompareTag(_enemyTag))

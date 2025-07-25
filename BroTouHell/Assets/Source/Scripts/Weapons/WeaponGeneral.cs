@@ -10,16 +10,15 @@ public abstract class WeaponGeneral : MonoBehaviour
      [SerializeField] protected float _rotationSpeed;
      [SerializeField] protected float _damage;
      [SerializeField] protected GameObject _hitVfx;
-     [SerializeField] protected TimeDilation _timeDilation;
-    protected GameObject _enemy;
-    protected HealthGeneral _enemyHealth;
+     protected TimeDilation _timeDilation;
+     protected GameObject _enemy;
+     protected HealthGeneral _enemyHealth;
 
-    [Inject]
-     private void Constructor(TimeDilation timeDilation)
-     {
-        _timeDilation = timeDilation;
-     }
-     protected virtual void Update()
+    private void Start()
+    {
+        _timeDilation = FindAnyObjectByType<TimeDilation>();
+    }
+    protected virtual void Update()
      {
           Rotating();
      }
