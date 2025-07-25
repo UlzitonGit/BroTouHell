@@ -11,13 +11,41 @@ public class Scythe : WeaponGeneral
         _poisonDamage += _scalePower;
     }
 
-    private void PoisonEnemy()
+    protected override void DealDamage(Collider other)
     {
-
+        if (other.CompareTag(_enemyTag))
+        {
+            print("Hit");
+            if (_enemyHealth == null)
+            {
+                _enemyHealth = other.GetComponent<HealthGeneral>();
+            }
+            _enemyHealth.GetDamage(_damage);
+            _timeDilation.StartDilation();
+            Instantiate(_hitVfx, other.transform.position, _rotationPoint.rotation);
+            ScaleStats();
+            if (_enemy == null)
+            {
+                _enemy = other.gameObject;
+                StartCoroutine(PoisonEnemy());
+            }
+        }
+        if (other.CompareTag(_enemyWeaponTag))
+        {
+            Parry();
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        DealDamage(other);
     }
 
-    IEnumerator Poison()
+    IEnumerator PoisonEnemy()
     {
-        yield return null;
+        while(_enemy != null) // ƒобавить диспелл при переходе на новый уровень
+        {
+            _enemyHealth.GetDamage(_poisonDamage);
+            yield return new WaitForSeconds(_poisonFrequency);
+        }
     }
 }

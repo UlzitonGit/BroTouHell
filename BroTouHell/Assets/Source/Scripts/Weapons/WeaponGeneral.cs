@@ -11,8 +11,10 @@ public abstract class WeaponGeneral : MonoBehaviour
      [SerializeField] protected float _damage;
      [SerializeField] protected GameObject _hitVfx;
      [SerializeField] protected TimeDilation _timeDilation;
+    protected GameObject _enemy;
+    protected HealthGeneral _enemyHealth;
 
-     [Inject]
+    [Inject]
      private void Constructor(TimeDilation timeDilation)
      {
         _timeDilation = timeDilation;
@@ -31,6 +33,10 @@ public abstract class WeaponGeneral : MonoBehaviour
           _rotationSpeed = _rotationSpeed * -1;
      }
 
+     protected virtual void DealDamage(Collider other)
+    {
+
+    }
      private void OnTriggerEnter(Collider other)
      {
           if (other.CompareTag(_enemyTag))
