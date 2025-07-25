@@ -8,6 +8,7 @@ public abstract class WeaponGeneral : MonoBehaviour
      [SerializeField] protected string _enemyWeaponTag;
      [SerializeField] protected float _rotationSpeed;
      [SerializeField] protected float _damage;
+     [SerializeField] protected GameObject _hitVfx;
 
      protected virtual void Update()
      {
@@ -28,6 +29,8 @@ public abstract class WeaponGeneral : MonoBehaviour
           if (other.CompareTag(_enemyTag))
           {
                print("Hit");
+               other.GetComponent<HealthGeneral>().GetDamage(_damage);
+               Instantiate(_hitVfx, other.transform.position, _rotationPoint.rotation);
                ScaleStats();
           }
           if (other.CompareTag(_enemyWeaponTag))

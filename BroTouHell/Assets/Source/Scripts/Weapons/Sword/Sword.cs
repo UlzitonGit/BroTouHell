@@ -7,16 +7,4 @@ public class Sword : WeaponGeneral
     {
         _damage += 0.1f;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(_enemyTag))
-        {
-            print("Hit");
-            ScaleStats();
-        }
-        if (other.CompareTag(_enemyWeaponTag))
-        {
-            Parry();
-        }
-    }
 }
