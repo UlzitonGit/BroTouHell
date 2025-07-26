@@ -42,7 +42,7 @@ public class HealthGeneral : MonoBehaviour
 
     private void Death()
     {
-        if (_isPlayer) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (_isPlayer) SceneManager.LoadScene(1);
         else
         {
             if(_isDead) return;
