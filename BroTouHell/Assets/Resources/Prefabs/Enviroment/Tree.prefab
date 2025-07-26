@@ -4911,6 +4911,7 @@ GameObject:
   - component: {fileID: 7249629279746616008}
   - component: {fileID: 2643271853071180410}
   - component: {fileID: 5213439125348828969}
+  - component: {fileID: -6821424496629878737}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -4970,6 +4971,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4131347364866058930}
   _leafsParticles: {fileID: 3145763926287855026}
+--- !u!114 &-6821424496629878737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882007060770669131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f45f22c15def4fbfe6b2de73afc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedLimit: 7
+  _additableSpeed: 10
 --- !u!1001 &8254623448718908501
 PrefabInstance:
   m_ObjectHideFlags: 0

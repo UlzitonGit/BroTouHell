@@ -11,6 +11,7 @@ public class GenerationInstaller : MonoInstaller
     {
         Container.Bind<PlayerMovement>().FromInstance(_player).AsSingle();
         Container.Bind<EnemyGenerator>().FromInstance(_enemyGenerator).AsSingle();
+        Container.Bind<NewLevel>().FromInstance(_newLevel).AsSingle();
         Container.Bind<StageCounterUI>().FromInstance(_stageCounterUI).AsSingle();
     }
 }

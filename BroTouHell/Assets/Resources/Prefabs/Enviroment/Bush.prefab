@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 310445866865232633}
   - component: {fileID: 931408922452841116}
   - component: {fileID: 8553329518726731005}
+  - component: {fileID: 2778700461096121795}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -70,6 +71,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6783496373124764136}
   _leafsParticles: {fileID: 1817880104772914551}
+--- !u!114 &2778700461096121795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889614117101648213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f45f22c15def4fbfe6b2de73afc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedLimit: 7
+  _additableSpeed: 10
 --- !u!1 &7703131079719322075
 GameObject:
   m_ObjectHideFlags: 0
