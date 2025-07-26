@@ -7,6 +7,7 @@ public class HealthGeneral : MonoBehaviour
     [SerializeField] private float _health;
     [SerializeField] private Animator _animator;
     private bool _isPlayer;
+    private bool _isDead;
     private NewLevel _levelManager;
 
     private void Start()
@@ -26,6 +27,8 @@ public class HealthGeneral : MonoBehaviour
         if (_isPlayer) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         else
         {
+            if(_isDead) return;
+            _isDead = true;
             Destroy(gameObject);
             _levelManager.IncreaseDefeatedEnemies();
             _levelManager.NextLevel();

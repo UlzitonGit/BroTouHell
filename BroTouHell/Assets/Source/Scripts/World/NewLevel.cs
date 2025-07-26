@@ -12,12 +12,14 @@ public class NewLevel : MonoBehaviour
     private int _level = 0;
     private int _enemiesDuringBossFight = 2;
     private int _defeatedEnemies;
+    private StageCounterUI _stageCounterUI;
 
     [Inject]
-    private void Constructor(PlayerMovement player, EnemyGenerator enemyGenerator)
+    private void Constructor(PlayerMovement player, EnemyGenerator enemyGenerator, StageCounterUI stageCounterUI)
     {
         _player = player;
         _enemyGenerator = enemyGenerator;
+        _stageCounterUI = stageCounterUI;
     }
     private void Start()
     {
@@ -41,12 +43,13 @@ public class NewLevel : MonoBehaviour
     {
         _level++;
         _player.transform.position = _playerSpawnPoint.position;
-        _enemyGenerator.GenerateEnemy(_enemySpawnPoint1);// здесь рандомится враг
+        _enemyGenerator.GenerateEnemy(_enemySpawnPoint1);// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         if (_level % _levelsInStage == 0)
         {
             _enemyGenerator.GenerateEnemy(_enemySpawnPoint2);
         }
         _defeatedEnemies = 0;
+        _stageCounterUI.NextStage(_level + 1);
     }
 
     public void IncreaseDefeatedEnemies()
