@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePlayerDamage(float additionalDamage)
     {
         _playerDamage += additionalDamage;
-        print("AAA" + _playerDamage);
+        print(_playerDamage);
     }
 
 
@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePlayerHealth(float additionalHealth)
     {
         _playerHealth += additionalHealth;
-        print("AAA" + _playerHealth);
+        print(_playerHealth);
     }
 
 
@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseBleedingDamage(float additionalDamage)
     {
         _bleedingDamage += additionalDamage;
-        print("AAA" + _bleedingDamage);
+        print(_bleedingDamage);
     }
 
 
@@ -62,7 +62,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseBleedingChance(float additionalChance)
     {
         _bleedingChance += additionalChance;
-        print("AAA" + _bleedingChance);
+        print(_bleedingChance);
     }
 
 
@@ -73,7 +73,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePoisonDamage(float additionalDamage)
     {
         _poisonDamage += additionalDamage;
-        print("AAA" + _poisonDamage);
+        print(_poisonDamage);
     }
 
 
@@ -84,7 +84,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseRotationSpeed(float additionalSpeed)
     {
         _rotationSpeed += additionalSpeed;
-        print("AAA" + _rotationSpeed);
+        print(_rotationSpeed);
     }
 
 
@@ -95,7 +95,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseParryDamage(float additionalDamageInPercents)
     {
         _parryDamageInPercents += additionalDamageInPercents;
-        print("AAA" + _parryDamageInPercents);
+        print(_parryDamageInPercents);
     }
 
 
@@ -106,7 +106,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseCritChance(float additionalChance)
     {
         _critChance += additionalChance;
-        print("AAA" + _critChance);
+        print(_critChance);
     }
 
 
@@ -117,6 +117,6 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseCritDamage(float additionalDamage)
     {
         _critDamage += additionalDamage;
-        print("AAA" + _critDamage);
+        print(_critDamage);
     }
 }
