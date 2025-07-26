@@ -28,6 +28,18 @@ public class HealthGeneral : MonoBehaviour
         if(_health <= 0) Death();
     }
 
+    public void Heal(float heal, bool full = false)
+    {
+        if (full)
+        {
+            _health = _playerStats.GetPlayerHealth();
+        }
+        else
+        {
+            _health += heal;
+        }
+    }
+
     private void Death()
     {
         if (_isPlayer) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

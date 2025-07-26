@@ -35,6 +35,7 @@ public class StageCounterUI : MonoBehaviour
     }
     IEnumerator Duration()
     {
+        _player.SetActive(false);
         _enemy.SetActive(false);
         yield return new WaitForSeconds(2f);
         _backPanel.gameObject.SetActive(true);
@@ -58,7 +59,6 @@ public class StageCounterUI : MonoBehaviour
     IEnumerator StageCountdown()
     {
         yield return new WaitForSeconds(1f);
-        _player.SetActive(false);
         _cardAnimatorPanel.gameObject.SetActive(false);
         _uiAnimator.SetActive(true);
         for (int i = 3; i != 0; i--)

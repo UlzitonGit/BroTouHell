@@ -31,6 +31,7 @@ public class NewLevel : MonoBehaviour
         {
             if (_defeatedEnemies == _enemiesDuringBossFight)
             {
+                _player.GetComponent<HealthGeneral>().Heal(0, true);
                 LevelSwap();
             }
         }
