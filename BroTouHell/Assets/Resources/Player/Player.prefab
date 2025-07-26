@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 7.5
   _graphicTransform: {fileID: 6270892115144075920}
+  _isPlayer: 0
 --- !u!114 &2809799213930220247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,8 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _isPlayer: 1
   _animator: {fileID: 103870805808314717}
+  _deathParticle: {fileID: 0}
 --- !u!1001 &5804038595799453051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,10 +480,7 @@ MonoBehaviour:
   _rotationPoint: {fileID: 6899625702470911775}
   _enemyTag: Enemy
   _enemyWeaponTag: EnemyWeapon
-  _rotationSpeed: 360
-  _damage: 1
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _timeDilation: {fileID: 0}
   _scalePower: 0.1
 --- !u!65 &1594438296855798749
 BoxCollider:
