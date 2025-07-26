@@ -14,14 +14,17 @@ public class SoundsPlayer : MonoBehaviour
 
     public void PlayCardPick()
     {
-        _audioSource.PlayOneShot(_cardPick);
+        _audioSource.pitch = Random.Range(0.8f, 1.0f);
+        _audioSource.PlayOneShot(_cardPick, Random.Range(0.9f, 1.1f));
     }
     public void PlayGetDamage()
     {
-        _audioSource.PlayOneShot(_getDamage);
+        _audioSource.pitch = Random.Range(0.8f, 1.0f);
+        _audioSource.PlayOneShot(_getDamage, Random.Range(0.9f, 1.1f));
     }
     public void PlayParry()
     {
-        _audioSource.PlayOneShot(_parry);
+        _audioSource.pitch = Random.Range(0.8f, 1.0f);
+        _audioSource.PlayOneShot(_parry, Random.Range(0.7f, 0.8f));
     }
 }
