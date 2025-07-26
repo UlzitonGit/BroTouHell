@@ -13,9 +13,11 @@ public abstract class WeaponGeneral : MonoBehaviour
      protected TimeDilation _timeDilation;
      protected GameObject _enemy;
      protected HealthGeneral _enemyHealth;
+     private SoundsPlayer _soundsPlayer;
 
     private void Start()
     {
+         _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _timeDilation = FindAnyObjectByType<TimeDilation>();
     }
     protected virtual void Update()
@@ -30,6 +32,7 @@ public abstract class WeaponGeneral : MonoBehaviour
      protected virtual void Parry()
      {
           _rotationSpeed = _rotationSpeed * -1;
+          _soundsPlayer.PlayParry();
      }
 
      protected virtual void DealDamage(Collider other)
