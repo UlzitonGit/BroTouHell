@@ -30,6 +30,9 @@ public class StatsUpgrade : Upgrade
             case StatsUpgradeType.ProjectileAmount:
                 _playerStats.IncreaseProjectileAmount(upgrade.UpgradingValue);
                 break;
+            case StatsUpgradeType.BleedingDamage:
+                _playerStats.IncreaseBleedingDamage(upgrade.UpgradingValue);
+                break;
         }
     }
 }

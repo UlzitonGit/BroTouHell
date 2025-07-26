@@ -11,5 +11,6 @@ public enum StatsUpgradeType
 {
     Damage,
     Health,
-    ProjectileAmount
+    ProjectileAmount,
+    BleedingDamage
 }
