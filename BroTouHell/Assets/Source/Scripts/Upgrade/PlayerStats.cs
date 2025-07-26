@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePlayerDamage(float additionalDamage)
     {
         _playerDamage += additionalDamage;
+        print("AAA" + _playerDamage);
     }
 
 
@@ -26,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePlayerHealth(float additionalHealth)
     {
         _playerHealth += additionalHealth;
+        print("AAA" + _playerHealth);
     }
 
 
@@ -35,7 +37,8 @@ public class PlayerStats : MonoBehaviour
     }
     public void IncreaseProjectileAmount(int additionalAmount)
     {
-        _playerHealth += additionalAmount;
+        _projectileAmount += additionalAmount;
+        print("AAA" + _projectileAmount);
     }
 
 
@@ -46,5 +49,6 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseBleedingDamage(float additionalDamage)
     {
         _bleedingDamage += additionalDamage;
+        print("AAA" + _bleedingDamage);
     }
 }

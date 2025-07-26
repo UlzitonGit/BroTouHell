@@ -12,7 +12,6 @@ public class PlayerSpeedUp : MonoBehaviour
         {
             Rigidbody _playerRb = collision.gameObject.GetComponent<Rigidbody>();
             float _playerSpeed = _playerRb.linearVelocity.magnitude;
-            print(_playerSpeed);
             if (_playerSpeed < _speedLimit)
             {
                 _playerRb.transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
