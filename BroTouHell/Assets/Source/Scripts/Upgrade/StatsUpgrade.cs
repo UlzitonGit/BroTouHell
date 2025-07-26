@@ -4,7 +4,8 @@ using Zenject;
 using System.Collections.Generic;
 public class StatsUpgrade : Upgrade
 {
-    [SerializeField] private List<StatsUpgradeSO> _upgradesList;
+    [SerializeField] private StatsUpgradeSO _upgradesList;
+    [SerializeField] private PlayerStats _target;
     private PlayerStats _playerStats;
 
     [Inject]
@@ -14,7 +15,14 @@ public class StatsUpgrade : Upgrade
     }
     public override void UpgradeTarget(ScriptableObject upgrade, HealthGeneral target)
     {
-        ChangeStats((StatsUpgradeSO)upgrade, target.GetComponent<PlayerStats>());
+        if (_target == null)
+        {
+            ChangeStats((StatsUpgradeSO)upgrade, target.GetComponent<PlayerStats>());
+        }
+        else
+        {
+            ChangeStats(_upgradesList, _target);
+        }
     }
 
     public void ChangeStats(StatsUpgradeSO upgrade, PlayerStats target)
