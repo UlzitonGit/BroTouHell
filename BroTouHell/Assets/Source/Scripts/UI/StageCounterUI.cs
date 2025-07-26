@@ -15,21 +15,28 @@ public class StageCounterUI : MonoBehaviour
     [SerializeField] private CardUpgradeRandomizer _cardUpgradeRandomizer;
     private void Start()
     {
-        StartCoroutine(FirstStage());
-    }
-    
-    public void NextStage(int level)
-    {
-        _backPanel.gameObject.SetActive(true);
-        ShowCards();
-        _stageCounterText.text = "СТАДИЯ " + level.ToString();
+        StartCoroutine(StageCountdown());
+        _stageCounterText.text = "СТАДИЯ 1";
     }
 
+  
+
+    public void NextStage(int level)
+    {
+        StartCoroutine(Duration());
+        _stageCounterText.text = "СТАДИЯ " + level.ToString();
+    }
+    IEnumerator Duration()
+    {
+        _enemy.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        _backPanel.gameObject.SetActive(true);
+        ShowCards();
+    }
+    
     private void ShowCards()
     {
         _cardUpgradeRandomizer.Randomize();
-        _player.SetActive(false);
-        _enemy.SetActive(false);
         _cardAnimatorPanel.gameObject.SetActive(true);
     }
 
@@ -39,16 +46,11 @@ public class StageCounterUI : MonoBehaviour
         _cardAnimatorPanel.SetTrigger("Hide");
         StartCoroutine(StageCountdown());
     }
-
-    IEnumerator FirstStage()
-    {
-        yield return new WaitForSeconds(1f);
-        NextStage(1);
-    }
-
+    
     IEnumerator StageCountdown()
     {
         yield return new WaitForSeconds(1f);
+        _player.SetActive(false);
         _cardAnimatorPanel.gameObject.SetActive(false);
         _uiAnimator.SetActive(true);
         for (int i = 3; i != 0; i--)

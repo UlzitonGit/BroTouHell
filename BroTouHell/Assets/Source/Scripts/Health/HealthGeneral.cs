@@ -6,6 +6,7 @@ public class HealthGeneral : MonoBehaviour
 {
     [SerializeField] private float _health;
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _deathParticle;
     private bool _isPlayer;
     private bool _isDead;
     private NewLevel _levelManager;
@@ -28,6 +29,7 @@ public class HealthGeneral : MonoBehaviour
         else
         {
             if(_isDead) return;
+            Instantiate(_deathParticle, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
             _isDead = true;
             Destroy(gameObject);
             _levelManager.IncreaseDefeatedEnemies();
