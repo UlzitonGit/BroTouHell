@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Zenject;
 
 public class HealthGeneral : MonoBehaviour
 {
@@ -10,9 +9,11 @@ public class HealthGeneral : MonoBehaviour
     private bool _isPlayer;
     private bool _isDead;
     private NewLevel _levelManager;
-
+    private SoundsPlayer _soundsPlayer;
+    
     private void Start()
     {
+        _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _isPlayer = GetComponent<PlayerMovement>().GetIsPlayer();
         _levelManager = FindAnyObjectByType<NewLevel>();
     }
@@ -20,6 +21,7 @@ public class HealthGeneral : MonoBehaviour
     {
         _health -= damage;
         _animator.SetTrigger("Hit");
+        _soundsPlayer.PlayGetDamage();
         if(_health <= 0) Death();
     }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-
+using Zenject;
 public class StageCounterUI : MonoBehaviour
 {
     [SerializeField] private GameObject _uiAnimator;
@@ -13,6 +13,13 @@ public class StageCounterUI : MonoBehaviour
     [SerializeField] private Animator _backPanel;
     [SerializeField] private Animator _cardAnimatorPanel;
     [SerializeField] private CardUpgradeRandomizer _cardUpgradeRandomizer;
+    private SoundsPlayer _soundsPlayer;
+    [Inject]
+    private void Constructor(SoundsPlayer soundsPlayer)
+    {
+        _soundsPlayer = soundsPlayer;
+   
+    }
     private void Start()
     {
         StartCoroutine(StageCountdown());
@@ -42,6 +49,7 @@ public class StageCounterUI : MonoBehaviour
 
     public void CardChoosen()
     {
+        _soundsPlayer.PlayCardPick();
         _cardUpgradeRandomizer.HideUpgrade();
         _cardAnimatorPanel.SetTrigger("Hide");
         StartCoroutine(StageCountdown());
