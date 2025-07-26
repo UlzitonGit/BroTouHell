@@ -4,7 +4,7 @@ using Zenject;
 using System.Collections.Generic;
 public class StatsUpgrade : Upgrade
 {
-    [SerializeField] private StatsUpgradeSO _upgrade;
+    [SerializeField] public StatsUpgradeSO _upgrade;
     [SerializeField] private PlayerStats _target;
     private PlayerStats _playerStats;
 
@@ -56,4 +56,11 @@ public class StatsUpgrade : Upgrade
                 break;
         }
     }
+
+
+    public StatsUpgradeSO GetUpgradeSO()
+    {
+        return _upgrade;
+    }
+
 }
