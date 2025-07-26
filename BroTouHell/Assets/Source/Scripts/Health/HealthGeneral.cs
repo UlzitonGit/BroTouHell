@@ -10,12 +10,15 @@ public class HealthGeneral : MonoBehaviour
     private bool _isDead;
     private NewLevel _levelManager;
     private SoundsPlayer _soundsPlayer;
+    private PlayerStats _playerStats;
     
     private void Start()
     {
         _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _isPlayer = GetComponent<PlayerMovement>().GetIsPlayer();
         _levelManager = FindAnyObjectByType<NewLevel>();
+        _playerStats = GetComponent<PlayerStats>();
+        _health = _playerStats.GetPlayerHealth();
     }
     public void GetDamage(float damage)
     {

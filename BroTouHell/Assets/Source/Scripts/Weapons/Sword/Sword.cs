@@ -5,18 +5,21 @@ public class Sword : WeaponGeneral
     [SerializeField] private float _scalePower = 0.1f;
     protected override void ScaleStats()
     {
-        _damage += _scalePower;
+        _playerStats.IncreasePlayerDamage(_scalePower);
     }
     protected override void DealDamage(Collider other)
     {
         if (other.CompareTag(_enemyTag))
         {
             print("Hit");
-            if (_enemyHealth == null)
+            if (UnityEngine.Random.Range(0f, 100f) > _playerStats.GetCritChance())
             {
-                _enemyHealth = other.GetComponent<HealthGeneral>();
+                other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage());
             }
-            _enemyHealth.GetDamage(_damage);
+            else
+            {
+                other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetCritDamage() + 100) / 100);
+            }
             _timeDilation.StartDilation();
             Instantiate(_hitVfx, other.transform.position, _rotationPoint.rotation);
             ScaleStats();
