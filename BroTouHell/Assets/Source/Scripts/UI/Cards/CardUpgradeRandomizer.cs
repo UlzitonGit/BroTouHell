@@ -30,7 +30,7 @@ public class CardUpgradeRandomizer : MonoBehaviour
 
     public void HideUpgrade()
     {
-        for (int i = 0; i < _cardUpgradesList.Length - 1; i++)
+        for (int i = 0; i < _cardUpgradesList.Length; i++)
         {
             _cardUpgradesList[i].HideUpgrade();
         }
