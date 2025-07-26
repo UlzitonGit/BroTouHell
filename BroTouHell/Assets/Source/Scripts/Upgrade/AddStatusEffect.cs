@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class AddStatusEffect : MonoBehaviour
 {
-    [SerializeField] private List<StatusEffectSO> _statusEffectsList;
     public void DebuffTarget(ScriptableObject debuff, HealthGeneral target)
     {
         AddEffect((StatusEffectSO)debuff, target.GetComponent<StatusEffectPipeline>());

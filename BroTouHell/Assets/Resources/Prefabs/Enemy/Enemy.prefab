@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 5415977250636670307}
   - component: {fileID: 4563567776704654190}
   - component: {fileID: 1473011788662479352}
+  - component: {fileID: 782812850304730398}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -353,6 +354,27 @@ MonoBehaviour:
   _health: 50
   _animator: {fileID: 570321980730760093}
   _deathParticle: {fileID: 7825175124774839585, guid: 2daa51c2939d01842afbe63b95a2f98d, type: 3}
+--- !u!114 &782812850304730398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279638057620370540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd132ac59980f5448a79a33bbc027231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerDamage: 5
+  _playerHealth: 50
+  _bleedingDamage: 0
+  _bleedingChance: 0
+  _poisonDamage: 0
+  _rotationSpeed: 360
+  _parryDamageInPercents: 0
+  _critChance: 0
+  _critDamage: 0
 --- !u!1 &5854421226506787952
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,8 +514,6 @@ MonoBehaviour:
   _rotationPoint: {fileID: 3932038719246766810}
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
-  _rotationSpeed: 360
-  _damage: 1
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 0.1
 --- !u!65 &3985049689274365366
@@ -1033,8 +1053,6 @@ MonoBehaviour:
   _rotationPoint: {fileID: 3932038719246766810}
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
-  _rotationSpeed: 360
-  _damage: 3
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 0.1
   _poisonFrequency: 0.5

@@ -4,8 +4,8 @@ using Zenject;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject _enemyPrefab;
-    [SerializeField] GameObject _enemyParent;
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _enemyParent;
     // В игре есть 2 рандомизированных параметра - апгрейды и оружие
     private WeaponGeneral[] _weaponsArray;
     public void GenerateEnemy(Transform spawnPosition)

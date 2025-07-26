@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WeaponStatusEffects : MonoBehaviour
 {
-    private List<StatusEffect> _statusEffects;
+    private List<StatusEffectSO> _statusEffects;
 
-    public void AddNewEffect(StatusEffect newEffect)
+    public void AddNewEffect(StatusEffectSO newEffect)
     {
         if (_statusEffects.Contains(newEffect) == false)
         {
@@ -14,7 +14,7 @@ public class WeaponStatusEffects : MonoBehaviour
         }
     }
 
-    public List<StatusEffect> GetStatusEffects()
+    public List<StatusEffectSO> GetStatusEffects()
     {
         return _statusEffects;
     }

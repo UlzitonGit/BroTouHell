@@ -15,12 +15,15 @@ public abstract class WeaponGeneral : MonoBehaviour
      private SoundsPlayer _soundsPlayer;
      protected PlayerStats _playerStats;
      private int _rotateInverse = 1;
+     private AddStatusEffect _addStatusEffect;
+     private WeaponStatusEffects _weaponStatusEffects;
 
     private void Start()
     {
-         _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
+        _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _timeDilation = FindAnyObjectByType<TimeDilation>();
         _playerStats = gameObject.transform.parent.parent.GetComponent<PlayerStats>();
+        _weaponStatusEffects = gameObject.transform.parent.parent.GetComponent<WeaponStatusEffects>();
     }
     protected virtual void Update()
      {
@@ -44,14 +47,19 @@ public abstract class WeaponGeneral : MonoBehaviour
      {
           if (other.CompareTag(_enemyTag))
           {
+            HealthGeneral _enemy = other.GetComponent<HealthGeneral>();
                print("Hit");
+               for (int i = 0; i < _weaponStatusEffects.GetStatusEffects().Count; i++)
+               {
+                   _addStatusEffect.DebuffTarget(_weaponStatusEffects.GetStatusEffects()[i], _enemy);
+               }
                if (UnityEngine.Random.Range(0f, 100f) > _playerStats.GetCritChance())
                {
-                other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage());
+                _enemy.GetDamage(_playerStats.GetPlayerDamage());
                }
                else
                {
-                other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetCritDamage() + 100) / 100);
+                _enemy.GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetCritDamage() + 100) / 100);
                }
                _timeDilation.StartDilation();
                Instantiate(_hitVfx, other.transform.position, _rotationPoint.rotation);
@@ -60,7 +68,8 @@ public abstract class WeaponGeneral : MonoBehaviour
           if (other.CompareTag(_enemyWeaponTag))
           {
                Parry();
-               other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * _playerStats.GetParryDamage() / 100);
+               other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
+            print(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
         }
      }
 
