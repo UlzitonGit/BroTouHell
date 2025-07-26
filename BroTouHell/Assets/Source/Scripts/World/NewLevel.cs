@@ -32,11 +32,14 @@ public class NewLevel : MonoBehaviour
             if (_defeatedEnemies == _enemiesDuringBossFight)
             {
                 _player.GetComponent<HealthGeneral>().Heal(0, true);
+                _player.GetComponent<StatusEffectPipeline>().DispellAll();
                 LevelSwap();
             }
         }
         else
         {
+            _player.GetComponent<HealthGeneral>().Heal(0, true);
+            _player.GetComponent<StatusEffectPipeline>().DispellAll();
             LevelSwap();
         }
     }
@@ -44,7 +47,7 @@ public class NewLevel : MonoBehaviour
     {
         _level++;
         _player.transform.position = _playerSpawnPoint.position;
-        _enemyGenerator.GenerateEnemy(_enemySpawnPoint1);// ����� ���������� ����
+        _enemyGenerator.GenerateEnemy(_enemySpawnPoint1);
         if (_level % _levelsInStage == 0)
         {
             _enemyGenerator.GenerateEnemy(_enemySpawnPoint2);

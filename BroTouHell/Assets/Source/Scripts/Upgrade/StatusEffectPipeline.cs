@@ -21,6 +21,16 @@ public class StatusEffectPipeline : MonoBehaviour
         }
     }
 
+    public void DispellAll()
+    {
+        for (int i = 0; i < _statusEffects.Count; i++)
+        {
+            _statusEffects.RemoveAt(i);
+            _users.RemoveAt(i);
+            i--;
+        }
+    }
+
     public List<StatusEffectSO> GetStatusEffects()
     {
         return _statusEffects;
