@@ -12,7 +12,7 @@ public class StatsUpgrade : Upgrade
     {
         _playerStats = playerStats;
     }
-    public override void UpgradeTarget(ScriptableObject upgrade, GameObject target)
+    public override void UpgradeTarget(ScriptableObject upgrade, HealthGeneral target)
     {
         ChangeStats((StatsUpgradeSO)upgrade, target.GetComponent<PlayerStats>());
     }

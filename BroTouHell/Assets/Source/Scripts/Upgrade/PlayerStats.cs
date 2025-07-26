@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float _playerDamage;
     [SerializeField] private float _playerHealth;
     [SerializeField] private int _projectileAmount;
+    [SerializeField] private float _bleedingDamage;
 
 
     public float GetPlayerDamage()
@@ -35,5 +36,15 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseProjectileAmount(int additionalAmount)
     {
         _playerHealth += additionalAmount;
+    }
+
+
+    public float GetBleedingDamage()
+    {
+        return _bleedingDamage;
+    }
+    public void IncreaseBleedingDamage(float additionalDamage)
+    {
+        _bleedingDamage += additionalDamage;
     }
 }

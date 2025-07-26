@@ -4,8 +4,7 @@ using UnityEngine;
 public class StatusEffectSO : ScriptableObject
 {
     public StatusEffectUpgradeType Type;
-    public bool IsStacking;
-    public bool IsPermanent;
+    public StatusEffect StatusEffect;
     public string Description;
 }
 public enum StatusEffectUpgradeType
