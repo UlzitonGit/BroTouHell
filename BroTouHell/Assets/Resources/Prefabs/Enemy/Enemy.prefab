@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 4563567776704654190}
   - component: {fileID: 1473011788662479352}
   - component: {fileID: 782812850304730398}
+  - component: {fileID: 5671066790703448017}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -375,6 +376,20 @@ MonoBehaviour:
   _parryDamageInPercents: 0
   _critChance: 0
   _critDamage: 0
+--- !u!114 &5671066790703448017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279638057620370540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409a66d8770efb04b8e90588b59cb935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedLimit: 2
+  _additableSpeed: 2
 --- !u!1 &5854421226506787952
 GameObject:
   m_ObjectHideFlags: 0

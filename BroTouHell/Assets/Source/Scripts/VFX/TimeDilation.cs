@@ -12,6 +12,7 @@ public class TimeDilation : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 120;
         Time.timeScale = _timeScaleDefault;
     }
     private void Update()
