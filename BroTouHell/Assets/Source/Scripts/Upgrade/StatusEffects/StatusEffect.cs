@@ -2,6 +2,6 @@ using UnityEngine;
 
 abstract public class StatusEffect : MonoBehaviour
 {
-    public abstract bool CreateEffect(HealthGeneral target);
+    public abstract bool CreateEffect(HealthGeneral target, PlayerStats user);
 
 }

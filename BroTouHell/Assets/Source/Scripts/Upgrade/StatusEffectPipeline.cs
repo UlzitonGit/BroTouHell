@@ -5,15 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(HealthGeneral))]
 public class StatusEffectPipeline : MonoBehaviour
 {
-    [SerializeField] private List<StatusEffectSO> _statusEffects;
+    private List<StatusEffectSO> _statusEffects;
+    private List<PlayerStats> _users;
 
     private void Update()
     {
         for (int i = 0;  i < _statusEffects.Count; i++)
         {
-            if(_statusEffects[i].StatusEffect.CreateEffect(gameObject.GetComponent<HealthGeneral>()) == false)
+            if(_statusEffects[i].StatusEffect.CreateEffect(gameObject.GetComponent<HealthGeneral>(), _users[i]) == false)
             {
                 _statusEffects.RemoveAt(i);
+                _users.RemoveAt(i);
                 i--;
             }
         }
@@ -24,7 +26,7 @@ public class StatusEffectPipeline : MonoBehaviour
         return _statusEffects;
     }
 
-    public void AddStatusEffect(StatusEffectSO statusEffect)
+    public void AddStatusEffect(StatusEffectSO statusEffect, PlayerStats user)
     {
         _statusEffects.Add(statusEffect);
     }

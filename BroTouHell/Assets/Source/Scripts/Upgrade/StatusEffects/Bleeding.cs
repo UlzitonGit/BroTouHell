@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
-[RequireComponent(typeof(PlayerStats))]
 public class Bleeding : StatusEffect
 {
 
@@ -9,8 +7,9 @@ public class Bleeding : StatusEffect
     [SerializeField] private float _effectFrequency;
     private float timer;
 
-    public override bool CreateEffect(HealthGeneral target)
+    public override bool CreateEffect(HealthGeneral target, PlayerStats user)
     {
+        print("Bleeding");
         timer += Time.deltaTime;
         if (timer >= _effectDuration)
         {
@@ -20,7 +19,7 @@ public class Bleeding : StatusEffect
         {
             _effectDuration -= Time.deltaTime;
             timer = 0;
-            target.GetDamage(GetComponent<PlayerStats>().GetBleedingDamage());
+            target.GetDamage(user.GetComponent<PlayerStats>().GetBleedingDamage());
         }
         return true;
     }

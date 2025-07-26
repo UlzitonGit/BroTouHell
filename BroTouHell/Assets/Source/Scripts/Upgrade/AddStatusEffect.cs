@@ -2,16 +2,16 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class AddStatusEffect : Upgrade
+public class AddStatusEffect : MonoBehaviour
 {
     [SerializeField] private List<StatusEffectSO> _statusEffectsList;
-    public override void UpgradeTarget(ScriptableObject upgrade, HealthGeneral target)
+    public void DebuffTarget(ScriptableObject debuff, HealthGeneral target)
     {
-        AddEffect((StatusEffectSO)upgrade, target.GetComponent<StatusEffectPipeline>());
+        AddEffect((StatusEffectSO)debuff, target.GetComponent<StatusEffectPipeline>());
     }
 
-    public void AddEffect(StatusEffectSO upgrade, StatusEffectPipeline target)
+    public void AddEffect(StatusEffectSO debuff, StatusEffectPipeline target)
     {
-        target.AddStatusEffect(upgrade);
+        target.AddStatusEffect(debuff, gameObject.GetComponent<PlayerStats>());
     }
 }
