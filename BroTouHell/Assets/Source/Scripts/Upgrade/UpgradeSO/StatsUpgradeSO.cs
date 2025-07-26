@@ -11,6 +11,11 @@ public enum StatsUpgradeType
 {
     Damage,
     Health,
-    ProjectileAmount,
-    BleedingDamage
+    BleedingDamage,
+    BleedingChance,
+    PoisonDamage,
+    RotationSpeed,
+    ParryDamageInPercents,
+    CritChance,
+    CritDamage
 }
