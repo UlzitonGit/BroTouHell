@@ -1,7 +1,10 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using System.Collections.Generic;
+using TMPro;
+
 public class StatsUpgrade : Upgrade
 {
     [SerializeField] public StatsUpgradeSO _upgrade;
@@ -13,6 +16,12 @@ public class StatsUpgrade : Upgrade
     {
         _playerStats = playerStats;
     }
+
+    private void Start()
+    {
+        GetComponentInChildren<TextMeshProUGUI>().text = _upgrade.Description;
+    }
+
     public void ButtonUpgrade()
     {
         print("power up");
