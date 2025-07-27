@@ -14,10 +14,13 @@ public class EnemyGenerator : MonoBehaviour
     private PlayerStats _characterStats;
 
     [SerializeField] private float _buildStatChances;
+    [SerializeField] private float _buildStatChancesProgression = 3f;
     [SerializeField] private WeaponBuildsList _weaponBuildsById;
     [SerializeField] private BuildList _builds;
     [SerializeField] private float _minimalPowerUps = 0.7f;
+    [SerializeField] private float _minimalPowerUpsProgression = 0.2f;
     [SerializeField] private float _maximalPowerUps = 1.1f;
+    [SerializeField] private float _maximalPowerUpsProgression = 0.2f;
     private NewLevel _levelSystem;
     private int _playerStatsCount;
 
@@ -72,11 +75,11 @@ public class EnemyGenerator : MonoBehaviour
         if (_levelSystem.GetLevel() % _levelSystem.GetLevelsInStage() == 0 && _levelSystem.GetLevel() == 1)
         {
             _playerStatsCount = _player.GetComponent<PlayerStats>().GetPowerUpsCount();
-            _minimalPowerUps += 0.1f;
-            _maximalPowerUps += 0.1f;
+            _minimalPowerUps += _minimalPowerUpsProgression;
+            _maximalPowerUps += _maximalPowerUpsProgression;
             if(_buildStatChances < 90)
             {
-                _buildStatChances += 3;
+                _buildStatChances += _buildStatChancesProgression;
             }
         }
         _characterStats = _newEnemy.GetComponent<PlayerStats>();
