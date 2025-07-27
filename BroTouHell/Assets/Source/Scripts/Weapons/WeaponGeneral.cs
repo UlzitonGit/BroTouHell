@@ -23,6 +23,7 @@ public abstract class WeaponGeneral : MonoBehaviour
         _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _timeDilation = FindAnyObjectByType<TimeDilation>();
         _playerStats = gameObject.transform.parent.parent.GetComponent<PlayerStats>();
+        _addStatusEffect = FindAnyObjectByType<AddStatusEffect>();
         print(_playerStats + " Меню статов определено");
         _weaponStatusEffects = gameObject.transform.parent.parent.GetComponent<WeaponStatusEffects>();
         print(_weaponStatusEffects + " Оружие определено");
@@ -49,11 +50,12 @@ public abstract class WeaponGeneral : MonoBehaviour
      {
           if (other.CompareTag(_enemyTag))
           {
-            HealthGeneral _enemy = other.GetComponent<HealthGeneral>();
-               print("Hit");
+               _rotateInverse = _rotateInverse * -1;
+               HealthGeneral _enemy = other.GetComponent<HealthGeneral>();
+               print($"Hit, weapon status effects = {_weaponStatusEffects.GetStatusEffects().Count}, я - {gameObject.transform.parent.parent}");
                for (int i = 0; i < _weaponStatusEffects.GetStatusEffects().Count; i++)
                {
-                   _addStatusEffect.DebuffTarget(_weaponStatusEffects.GetStatusEffects()[i], _enemy);
+                   _addStatusEffect.DebuffTarget(_weaponStatusEffects.GetStatusEffects()[i], _enemy, _playerStats);
                    print($"Статус эффект {_weaponStatusEffects.GetStatusEffects()[i]} добавлен на существо {_enemy}");
                }
                if (UnityEngine.Random.Range(0f, 100f) > _playerStats.GetCritChance())
@@ -72,7 +74,6 @@ public abstract class WeaponGeneral : MonoBehaviour
           {
                Parry();
                other.transform.parent.parent.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
-            print(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
         }
      }
 

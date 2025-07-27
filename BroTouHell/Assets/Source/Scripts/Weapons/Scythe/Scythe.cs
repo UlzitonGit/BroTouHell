@@ -9,7 +9,7 @@ public class Scythe : WeaponGeneral
     private void Start()
     {
         _weaponStatusEffects.AddNewEffect(_poison);
-        print($"Ёффект Poison добавлен на оружие {gameObject.transform.parent.parent}");
+        print($"Ёффект Poison добавлен на оружие {gameObject.transform.parent.parent}, {_weaponStatusEffects.GetStatusEffects().Count} - текущее количество эффектов");
     }
     protected override void ScaleStats()
     {

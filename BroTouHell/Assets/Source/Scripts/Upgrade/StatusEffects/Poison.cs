@@ -13,8 +13,10 @@ public class Poison : StatusEffect
         if (timer >= _effectFrequency)
         {
             timer = 0;
-            target.GetDamage(user.GetComponent<PlayerStats>().GetPoisonDamage());
-            print("Урон Poison прошел!");
+            print(target);
+            print(user);
+            target.GetDamage(user.GetPoisonDamage());
+            print($"Урон Poison прошел, урон - {user.GetPoisonDamage()}!");
         }
         return true;
     }
