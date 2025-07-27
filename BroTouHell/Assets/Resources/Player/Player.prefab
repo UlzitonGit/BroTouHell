@@ -700,7 +700,7 @@ MonoBehaviour:
   _enemyTag: Enemy
   _enemyWeaponTag: EnemyWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 0.1
+  _scalePower: 1
   _poison: {fileID: 11400000, guid: 4841e359ec3bc3e46b9318fa801c1cf1, type: 2}
 --- !u!65 &6791041094092966520
 BoxCollider:
@@ -969,8 +969,8 @@ MonoBehaviour:
   _enemyTag: Enemy
   _enemyWeaponTag: EnemyWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 10
-  _baseRotationSpeedAmplification: 115
+  _scalePower: 30
+  _baseRotationSpeedAmplification: 190
 --- !u!65 &155282841815664510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   _enemyTag: Enemy
   _enemyWeaponTag: EnemyWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 0.1
+  _scalePower: 1
   _baseDamageAmplification: 3
 --- !u!65 &1594438296855798749
 BoxCollider:
