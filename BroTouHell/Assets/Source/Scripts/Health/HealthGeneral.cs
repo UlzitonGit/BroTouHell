@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,8 @@ public class HealthGeneral : MonoBehaviour
     [SerializeField] private float _health;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _deathParticle;
+    [SerializeField] private TextMeshPro _damageText;
+    private Animator _textAnimator;
     private bool _isPlayer;
     private bool _isDead;
     private NewLevel _levelManager;
@@ -14,6 +17,7 @@ public class HealthGeneral : MonoBehaviour
     
     private void Start()
     {
+        _textAnimator = _damageText.GetComponent<Animator>();
         _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _isPlayer = GetComponent<PlayerMovement>().GetIsPlayer();
         _levelManager = FindAnyObjectByType<NewLevel>();
@@ -22,7 +26,10 @@ public class HealthGeneral : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
+        //if(damage == 0) return;
         _health -= damage;
+        _damageText.text = damage.ToString();
+        _textAnimator.SetTrigger("Damage");
         _animator.SetTrigger("Hit");
         _soundsPlayer.PlayGetDamage();
         if(_health <= 0) Death();
