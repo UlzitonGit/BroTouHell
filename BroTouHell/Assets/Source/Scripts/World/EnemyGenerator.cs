@@ -18,6 +18,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private BuildList _builds;
     [SerializeField] private float _minimalPowerUps = 0.7f;
     [SerializeField] private float _maximalPowerUps = 1.1f;
+    private NewLevel _levelSystem;
     private int _playerStatsCount;
 
     private HealthGeneral _enemyHealth;
@@ -29,23 +30,20 @@ public class EnemyGenerator : MonoBehaviour
 
     [Inject]
 
-    private void Constructor(PlayerMovement player, StatsUpgrade upgrade)
+    private void Constructor(PlayerMovement player, StatsUpgrade upgrade, NewLevel levelSystem)
     {
         _player = player;
         _upgrade = upgrade;
+        _levelSystem = levelSystem;
     }
     public void GenerateEnemy(Transform spawnPosition)
     {
         GameObject _newEnemy = Instantiate(_enemyPrefab, spawnPosition.position, Quaternion.identity, _enemyParent.transform);
-        _playerStatsCount = _player.GetComponent<PlayerStats>().GetPowerUpsCount();
-        _characterStats = _newEnemy.GetComponent<PlayerStats>();
-        _enemyHealth = _newEnemy.GetComponent<HealthGeneral>();
-        print(_newEnemy.transform.position + " " + _newEnemy.gameObject.transform.parent);
-        _weaponsArray = _newEnemy.GetComponentsInChildren<WeaponGeneral>(true);
-        print(_weaponsArray);
-        _weaponId = UnityEngine.Random.Range(0, _weaponsArray.Length);
-        _weaponsArray[_weaponId].gameObject.SetActive(true);
-
+        GetInfo(_newEnemy);
+        BuffEnemy();
+    }
+    private void BuffEnemy()
+    {
         int _enemiesPowerUps = Mathf.RoundToInt(UnityEngine.Random.Range((float)_playerStatsCount * _minimalPowerUps, (float)_playerStatsCount * _maximalPowerUps));
 
         print($"Количесто моих паверапов - {_playerStatsCount}, Количество паверапов противника - {_enemiesPowerUps}");
@@ -68,6 +66,26 @@ public class EnemyGenerator : MonoBehaviour
                 _characterStats.IncreasePlayerHealth(i * 2, true);
             }
         }
+    }
+    private void GetInfo(GameObject _newEnemy)
+    {
+        if (_levelSystem.GetLevel() % _levelSystem.GetLevelsInStage() == 0 && _levelSystem.GetLevel() == 1)
+        {
+            _playerStatsCount = _player.GetComponent<PlayerStats>().GetPowerUpsCount();
+            _minimalPowerUps += 0.1f;
+            _maximalPowerUps += 0.1f;
+            if(_buildStatChances < 90)
+            {
+                _buildStatChances += 3;
+            }
+        }
+        _characterStats = _newEnemy.GetComponent<PlayerStats>();
+        _enemyHealth = _newEnemy.GetComponent<HealthGeneral>();
+        print(_newEnemy.transform.position + " " + _newEnemy.gameObject.transform.parent);
+        _weaponsArray = _newEnemy.GetComponentsInChildren<WeaponGeneral>(true);
+        print(_weaponsArray);
+        _weaponId = UnityEngine.Random.Range(0, _weaponsArray.Length);
+        _weaponsArray[_weaponId].gameObject.SetActive(true);
     }
 }
 

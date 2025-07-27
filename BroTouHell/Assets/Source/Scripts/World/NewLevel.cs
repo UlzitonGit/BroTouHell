@@ -60,4 +60,12 @@ public class NewLevel : MonoBehaviour
     {
         _defeatedEnemies++;
     }
+    public int GetLevel()
+    {
+        return _level;
+    }
+    public int GetLevelsInStage()
+    {
+        return _levelsInStage;
+    }
 }
