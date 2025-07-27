@@ -8,6 +8,7 @@ public class GenerationInstaller : MonoInstaller
     [SerializeField] private NewLevel _newLevel;
     [SerializeField] private StageCounterUI _stageCounterUI;
     [SerializeField] private SoundsPlayer _soundsPlayer;
+    [SerializeField] private StatsUpgrade _statsUpgrade;
     public override void InstallBindings()
     {
         Container.Bind<PlayerMovement>().FromInstance(_player).AsSingle();
@@ -15,5 +16,6 @@ public class GenerationInstaller : MonoInstaller
         Container.Bind<NewLevel>().FromInstance(_newLevel).AsSingle();
         Container.Bind<StageCounterUI>().FromInstance(_stageCounterUI).AsSingle();
         Container.Bind<SoundsPlayer>().FromInstance(_soundsPlayer).AsSingle();
+        Container.Bind<StatsUpgrade>().FromInstance(_statsUpgrade).AsSingle();
     }
 }

@@ -73,7 +73,8 @@ public abstract class WeaponGeneral : MonoBehaviour
           if (other.CompareTag(_enemyWeaponTag))
           {
                Parry();
-               other.transform.parent.parent.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
+               HealthGeneral _enemy = other.transform.parent.parent.GetComponent<HealthGeneral>();
+               _enemy.GetDamage(_enemy.GetComponent<PlayerStats>().GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
         }
      }
 

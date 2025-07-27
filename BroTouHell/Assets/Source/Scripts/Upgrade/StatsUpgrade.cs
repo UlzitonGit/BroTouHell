@@ -10,6 +10,7 @@ public class StatsUpgrade : Upgrade
     [SerializeField] public StatsUpgradeSO _upgrade;
     [SerializeField] private PlayerStats _target;
     private PlayerStats _playerStats;
+    [SerializeField] private bool _forCharacter;
 
     [Inject]
     private void Constructor(PlayerStats playerStats)
@@ -19,7 +20,10 @@ public class StatsUpgrade : Upgrade
 
     private void Start()
     {
-        GetComponentInChildren<TextMeshProUGUI>().text = _upgrade.Description;
+        if (_forCharacter == false)
+        {
+            GetComponentInChildren<TextMeshProUGUI>().text = _upgrade.Description;
+        }
     }
 
     public void ButtonUpgrade()
