@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -24,7 +25,6 @@ public class PlayerStats : MonoBehaviour
     private int _powerUpsCount;
 
     private int _weaponStacksCount;
-
 
     public float GetPlayerDamage()
     {
