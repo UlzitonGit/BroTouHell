@@ -8,12 +8,13 @@ public class Poison : StatusEffect
 
     public override bool CreateEffect(HealthGeneral target, PlayerStats user)
     {
+        print("CreateEffect() Poison начался");
         timer += Time.deltaTime;
         if (timer >= _effectFrequency)
         {
-            print("Poison");
             timer = 0;
             target.GetDamage(user.GetComponent<PlayerStats>().GetPoisonDamage());
+            print("Урон Poison прошел!");
         }
         return true;
     }

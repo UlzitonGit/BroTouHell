@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponStatusEffects : MonoBehaviour
 {
-    private List<StatusEffectSO> _statusEffects;
+    private List<StatusEffectSO> _statusEffects = new List<StatusEffectSO>();
 
     public void AddNewEffect(StatusEffectSO newEffect)
     {

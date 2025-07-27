@@ -5,15 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(HealthGeneral))]
 public class StatusEffectPipeline : MonoBehaviour
 {
-    private List<StatusEffectSO> _statusEffects;
+    private List<StatusEffectSO> _statusEffects = new List<StatusEffectSO>();
     private List<PlayerStats> _users;
 
     private void Update()
     {
         for (int i = 0;  i < _statusEffects.Count; i++)
         {
+            print($"Статус эффект {_statusEffects[i]} вызван!");
             if(_statusEffects[i].StatusEffect.CreateEffect(gameObject.GetComponent<HealthGeneral>(), _users[i]) == false)
             {
+                print($"Статус эффект {_statusEffects[i]} сработал!");
                 _statusEffects.RemoveAt(i);
                 _users.RemoveAt(i);
                 i--;
@@ -39,5 +41,6 @@ public class StatusEffectPipeline : MonoBehaviour
     public void AddStatusEffect(StatusEffectSO statusEffect, PlayerStats user)
     {
         _statusEffects.Add(statusEffect);
+        print($"Статус эффект {statusEffect} добавлен в пайплайн!");
     }
 }

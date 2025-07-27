@@ -253,6 +253,8 @@ GameObject:
   - component: {fileID: 1473011788662479352}
   - component: {fileID: 782812850304730398}
   - component: {fileID: 5671066790703448017}
+  - component: {fileID: 3216608136509721836}
+  - component: {fileID: 5057735256943150663}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -372,7 +374,7 @@ MonoBehaviour:
   _bleedingDamage: 0
   _bleedingChance: 0
   _poisonDamage: 0
-  _rotationSpeed: 360
+  _rotationSpeed: 315
   _parryDamageInPercents: 0
   _critChance: 0
   _critDamage: 0
@@ -390,6 +392,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedLimit: 2
   _additableSpeed: 2
+--- !u!114 &3216608136509721836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279638057620370540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba581a77662f8f4aa3828f900b0d2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5057735256943150663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279638057620370540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc31f863f402834d8fab0fd1a7d7695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5854421226506787952
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +557,7 @@ MonoBehaviour:
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 0.1
+  _baseDamageAmplification: 3
 --- !u!65 &3985049689274365366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -592,7 +619,7 @@ GameObject:
   - component: {fileID: 8489849986469564218}
   m_Layer: 6
   m_Name: knife
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -981,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34b6b8c3033abf346a4769b89e8f9824, type: 3}
+      propertyPath: m_TagString
+      value: EnemyWeapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1070,5 +1101,4 @@ MonoBehaviour:
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 0.1
-  _poisonFrequency: 0.5
-  _poisonDamage: 1
+  _poison: {fileID: 11400000, guid: 4841e359ec3bc3e46b9318fa801c1cf1, type: 2}

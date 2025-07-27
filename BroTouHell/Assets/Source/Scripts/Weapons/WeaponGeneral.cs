@@ -16,14 +16,16 @@ public abstract class WeaponGeneral : MonoBehaviour
      protected PlayerStats _playerStats;
      private int _rotateInverse = 1;
      private AddStatusEffect _addStatusEffect;
-     private WeaponStatusEffects _weaponStatusEffects;
+     protected WeaponStatusEffects _weaponStatusEffects;
 
-    private void Start()
+    private void Awake()
     {
         _soundsPlayer = FindAnyObjectByType<SoundsPlayer>();
         _timeDilation = FindAnyObjectByType<TimeDilation>();
         _playerStats = gameObject.transform.parent.parent.GetComponent<PlayerStats>();
+        print(_playerStats + " Меню статов определено");
         _weaponStatusEffects = gameObject.transform.parent.parent.GetComponent<WeaponStatusEffects>();
+        print(_weaponStatusEffects + " Оружие определено");
     }
     protected virtual void Update()
      {
@@ -52,6 +54,7 @@ public abstract class WeaponGeneral : MonoBehaviour
                for (int i = 0; i < _weaponStatusEffects.GetStatusEffects().Count; i++)
                {
                    _addStatusEffect.DebuffTarget(_weaponStatusEffects.GetStatusEffects()[i], _enemy);
+                   print($"Статус эффект {_weaponStatusEffects.GetStatusEffects()[i]} добавлен на существо {_enemy}");
                }
                if (UnityEngine.Random.Range(0f, 100f) > _playerStats.GetCritChance())
                {
@@ -68,7 +71,7 @@ public abstract class WeaponGeneral : MonoBehaviour
           if (other.CompareTag(_enemyWeaponTag))
           {
                Parry();
-               other.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
+               other.transform.parent.parent.GetComponent<HealthGeneral>().GetDamage(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
             print(_playerStats.GetPlayerDamage() * (_playerStats.GetParryDamage() / 100));
         }
      }

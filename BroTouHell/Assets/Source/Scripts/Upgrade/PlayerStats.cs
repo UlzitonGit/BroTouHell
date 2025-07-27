@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePlayerDamage(float additionalDamage)
     {
         _playerDamage += additionalDamage;
-        print(_playerDamage);
+        //print(_playerDamage);
     }
 
 
