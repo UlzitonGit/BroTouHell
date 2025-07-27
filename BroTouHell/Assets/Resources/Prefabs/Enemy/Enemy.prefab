@@ -985,7 +985,7 @@ MonoBehaviour:
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 10
   _baseRotationSpeedAmplification: 115
-  _baseBleedingDamage: 0
+  _baseBleedingDamage: 1
 --- !u!65 &5804279329953259335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1146,9 +1146,9 @@ MonoBehaviour:
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 3
+  _scalePower: 2
   _poison: {fileID: 11400000, guid: 4841e359ec3bc3e46b9318fa801c1cf1, type: 2}
-  _defaultPoisonDamage: 1
+  _defaultPoisonDamage: 0
 --- !u!65 &6540219023834864614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1318,8 +1318,8 @@ MonoBehaviour:
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 10
-  _baseParryDamageAmplification: 60
+  _scalePower: 13
+  _baseParryDamageAmplification: 40
 --- !u!65 &6029775424883177752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1479,8 +1479,8 @@ MonoBehaviour:
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 1.5
-  _baseDamageAmplification: 5
+  _scalePower: 2
+  _baseDamageAmplification: 0
 --- !u!65 &3631646444760962254
 BoxCollider:
   m_ObjectHideFlags: 0
