@@ -22,7 +22,9 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float _maximalPowerUps = 1.1f;
     [SerializeField] private float _maximalPowerUpsProgression = 0.2f;
     private NewLevel _levelSystem;
+
     private int _playerStatsCount;
+    private int _playerWeaponStacks;
 
     private HealthGeneral _enemyHealth;
 
@@ -43,11 +45,19 @@ public class EnemyGenerator : MonoBehaviour
     {
         GameObject _newEnemy = Instantiate(_enemyPrefab, spawnPosition.position, Quaternion.identity, _enemyParent.transform);
         GetInfo(_newEnemy);
+        PickWeapon(_newEnemy);
         BuffEnemy();
     }
     private void BuffEnemy()
     {
         int _enemiesPowerUps = Mathf.RoundToInt(UnityEngine.Random.Range((float)_playerStatsCount * _minimalPowerUps, (float)_playerStatsCount * _maximalPowerUps));
+        int _enemiesWeaponStacks = Mathf.RoundToInt(UnityEngine.Random.Range((float)_playerWeaponStacks * _minimalPowerUps, (float)_playerWeaponStacks * _maximalPowerUps));
+
+        for (int i = 0; i < _enemiesWeaponStacks; i++)
+        {
+            print($"Базовый скейл произведен! Итерация - {i}");
+            _weaponsArray[_weaponId].GetComponent<WeaponGeneral>().ScaleStats();
+        }
 
         print($"Количесто моих паверапов - {_playerStatsCount}, Количество паверапов противника - {_enemiesPowerUps}");
 
@@ -75,6 +85,7 @@ public class EnemyGenerator : MonoBehaviour
         if (_levelSystem.GetLevel() % _levelSystem.GetLevelsInStage() == 0 && _levelSystem.GetLevel() == 1)
         {
             _playerStatsCount = _player.GetComponent<PlayerStats>().GetPowerUpsCount();
+            _playerWeaponStacks = _player.GetComponent<PlayerStats>().GetWeaponStacksCount();
             _minimalPowerUps += _minimalPowerUpsProgression;
             _maximalPowerUps += _maximalPowerUpsProgression;
             if(_buildStatChances < 90)
@@ -84,6 +95,10 @@ public class EnemyGenerator : MonoBehaviour
         }
         _characterStats = _newEnemy.GetComponent<PlayerStats>();
         _enemyHealth = _newEnemy.GetComponent<HealthGeneral>();
+    }
+
+    private void PickWeapon(GameObject _newEnemy)
+    {
         print(_newEnemy.transform.position + " " + _newEnemy.gameObject.transform.parent);
         _weaponsArray = _newEnemy.GetComponentsInChildren<WeaponGeneral>(true);
         print(_weaponsArray);

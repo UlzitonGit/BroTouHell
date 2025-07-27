@@ -23,6 +23,8 @@ public class PlayerStats : MonoBehaviour
 
     private int _powerUpsCount;
 
+    private int _weaponStacksCount;
+
 
     public float GetPlayerDamage()
     {
@@ -32,6 +34,7 @@ public class PlayerStats : MonoBehaviour
     {
         _playerDamage += additionalDamage;
         if (needUp) _powerUpsCount++;
+        else _weaponStacksCount++;
         print(_playerDamage);
     }
 
@@ -43,7 +46,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePlayerHealth(float additionalHealth, bool needUp)
     {
         _playerHealth += additionalHealth;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_playerHealth);
     }
 
@@ -55,7 +59,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseBleedingDamage(float additionalDamage, bool needUp)
     {
         _bleedingDamage += additionalDamage;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_bleedingDamage);
     }
 
@@ -67,7 +72,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseBleedingChance(float additionalChance, bool needUp)
     {
         _bleedingChance += additionalChance;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_bleedingChance);
     }
 
@@ -79,7 +85,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreasePoisonDamage(float additionalDamage, bool needUp)
     {
         _poisonDamage += additionalDamage;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_poisonDamage);
     }
 
@@ -91,7 +98,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseRotationSpeed(float additionalSpeed, bool needUp)
     {
         _rotationSpeed += additionalSpeed;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_rotationSpeed);
     }
 
@@ -103,7 +111,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseParryDamage(float additionalDamageInPercents, bool needUp)
     {
         _parryDamageInPercents += additionalDamageInPercents;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_parryDamageInPercents);
     }
 
@@ -115,7 +124,8 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseCritChance(float additionalChance, bool needUp)
     {
         _critChance += additionalChance;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_critChance);
     }
 
@@ -127,12 +137,18 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseCritDamage(float additionalDamage, bool needUp)
     {
         _critDamage += additionalDamage;
-        if (needUp) _powerUpsCount++;
+        if (needUp) _powerUpsCount++;         
+        else _weaponStacksCount++;
         print(_critDamage);
     }
 
     public int GetPowerUpsCount()
     {
         return _powerUpsCount;
+    }
+
+    public int GetWeaponStacksCount()
+    {
+        return _weaponStacksCount;
     }
 }

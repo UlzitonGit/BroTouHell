@@ -43,6 +43,7 @@ public abstract class WeaponGeneral : MonoBehaviour
           _soundsPlayer.PlayParry();
      }
 
+    public virtual void StartingBuff() { }
      protected virtual void DealDamage(Collider other)
     {
     }
@@ -78,7 +79,7 @@ public abstract class WeaponGeneral : MonoBehaviour
         }
      }
 
-     protected abstract void ScaleStats();
+     public abstract void ScaleStats();
 
 
 }

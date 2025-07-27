@@ -7,9 +7,14 @@ public class Shield : WeaponGeneral
 
     private void Start()
     {
+        StartingBuff();
+    }
+
+    public override void StartingBuff()
+    {
         _playerStats.IncreaseParryDamage(_baseParryDamageAmplification, false);
     }
-    protected override void ScaleStats()
+    public override void ScaleStats()
     {
         _playerStats.IncreasePlayerHealth(_scalePower, false);
     }
