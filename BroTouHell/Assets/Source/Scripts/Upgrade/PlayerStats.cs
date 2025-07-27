@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerStats : MonoBehaviour
 {
