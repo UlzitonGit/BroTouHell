@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] private bool _isPlayer;
+
     [SerializeField] private float _playerDamage;
 
     [SerializeField] private float _playerHealth;
@@ -26,6 +29,14 @@ public class PlayerStats : MonoBehaviour
 
     private int _weaponStacksCount;
 
+    private StatsUI _statsUI;
+
+    [Inject]
+
+    private void Constructor(StatsUI statsUI)
+    {
+        _statsUI = statsUI;
+    }
     public float GetPlayerDamage()
     {
         return _playerDamage;
@@ -36,6 +47,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;
         else _weaponStacksCount++;
         print(_playerDamage);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -49,6 +64,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_playerHealth);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -62,6 +81,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_bleedingDamage);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -75,6 +98,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_bleedingChance);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -88,6 +115,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_poisonDamage);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -101,6 +132,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_rotationSpeed);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -114,6 +149,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_parryDamageInPercents);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -127,6 +166,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_critChance);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
 
@@ -140,6 +183,10 @@ public class PlayerStats : MonoBehaviour
         if (needUp) _powerUpsCount++;         
         else _weaponStacksCount++;
         print(_critDamage);
+        if (_isPlayer)
+        {
+            _statsUI.UpdateUI();
+        }
     }
 
     public int GetPowerUpsCount()
