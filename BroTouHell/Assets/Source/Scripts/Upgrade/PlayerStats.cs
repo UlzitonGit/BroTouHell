@@ -28,11 +28,11 @@ public class PlayerStats : MonoBehaviour
     {
         return _playerDamage;
     }
-    public void IncreasePlayerDamage(float additionalDamage)
+    public void IncreasePlayerDamage(float additionalDamage, bool needUp)
     {
         _playerDamage += additionalDamage;
-        _powerUpsCount++;
-        //print(_playerDamage);
+        if (needUp) _powerUpsCount++;
+        print(_playerDamage);
     }
 
 
@@ -40,10 +40,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _playerHealth;
     }
-    public void IncreasePlayerHealth(float additionalHealth)
+    public void IncreasePlayerHealth(float additionalHealth, bool needUp)
     {
         _playerHealth += additionalHealth;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_playerHealth);
     }
 
@@ -52,10 +52,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _bleedingDamage;
     }
-    public void IncreaseBleedingDamage(float additionalDamage)
+    public void IncreaseBleedingDamage(float additionalDamage, bool needUp)
     {
         _bleedingDamage += additionalDamage;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_bleedingDamage);
     }
 
@@ -64,10 +64,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _bleedingChance;
     }
-    public void IncreaseBleedingChance(float additionalChance)
+    public void IncreaseBleedingChance(float additionalChance, bool needUp)
     {
         _bleedingChance += additionalChance;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_bleedingChance);
     }
 
@@ -76,10 +76,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _poisonDamage;
     }
-    public void IncreasePoisonDamage(float additionalDamage)
+    public void IncreasePoisonDamage(float additionalDamage, bool needUp)
     {
         _poisonDamage += additionalDamage;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_poisonDamage);
     }
 
@@ -88,10 +88,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _rotationSpeed;
     }
-    public void IncreaseRotationSpeed(float additionalSpeed)
+    public void IncreaseRotationSpeed(float additionalSpeed, bool needUp)
     {
         _rotationSpeed += additionalSpeed;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_rotationSpeed);
     }
 
@@ -100,10 +100,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _parryDamageInPercents;
     }
-    public void IncreaseParryDamage(float additionalDamageInPercents)
+    public void IncreaseParryDamage(float additionalDamageInPercents, bool needUp)
     {
         _parryDamageInPercents += additionalDamageInPercents;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_parryDamageInPercents);
     }
 
@@ -112,10 +112,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _critChance;
     }
-    public void IncreaseCritChance(float additionalChance)
+    public void IncreaseCritChance(float additionalChance, bool needUp)
     {
         _critChance += additionalChance;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_critChance);
     }
 
@@ -124,10 +124,10 @@ public class PlayerStats : MonoBehaviour
     {
         return _critDamage;
     }
-    public void IncreaseCritDamage(float additionalDamage)
+    public void IncreaseCritDamage(float additionalDamage, bool needUp)
     {
         _critDamage += additionalDamage;
-        _powerUpsCount++;
+        if (needUp) _powerUpsCount++;
         print(_critDamage);
     }
 

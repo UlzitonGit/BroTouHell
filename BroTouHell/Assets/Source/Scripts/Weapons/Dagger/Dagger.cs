@@ -7,10 +7,10 @@ public class Dagger : WeaponGeneral
 
     private void Start()
     {
-        _playerStats.IncreaseRotationSpeed(_baseRotationSpeedAmplification);
+        _playerStats.IncreaseRotationSpeed(_baseRotationSpeedAmplification, false);
     }
     protected override void ScaleStats()
     {
-        _playerStats.IncreaseRotationSpeed(_scalePower);
+        _playerStats.IncreaseRotationSpeed(_scalePower, false);
     }
 }

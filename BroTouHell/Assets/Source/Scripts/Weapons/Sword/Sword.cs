@@ -8,10 +8,10 @@ public class Sword : WeaponGeneral
     private void Start()
     {
         print(_playerStats);
-        _playerStats.IncreasePlayerDamage(_baseDamageAmplification);
+        _playerStats.IncreasePlayerDamage(_baseDamageAmplification, false);
     }
     protected override void ScaleStats()
     {
-        _playerStats.IncreasePlayerDamage(_scalePower);
+        _playerStats.IncreasePlayerDamage(_scalePower, false);
     }
 }

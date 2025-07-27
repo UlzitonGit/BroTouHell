@@ -7,10 +7,10 @@ public class Shield : WeaponGeneral
 
     private void Start()
     {
-        _playerStats.IncreaseParryDamage(_baseParryDamageAmplification);
+        _playerStats.IncreaseParryDamage(_baseParryDamageAmplification, false);
     }
     protected override void ScaleStats()
     {
-        _playerStats.IncreasePlayerHealth(_scalePower);
+        _playerStats.IncreasePlayerHealth(_scalePower, false);
     }
 }

@@ -41,31 +41,31 @@ public class StatsUpgrade : Upgrade
         switch (upgrade.Type)
         {
             case StatsUpgradeType.Damage:
-                _playerStats.IncreasePlayerDamage(upgrade.UpgradingValue);
+                _playerStats.IncreasePlayerDamage(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.Health:
-                _playerStats.IncreasePlayerHealth(upgrade.UpgradingValue);
+                _playerStats.IncreasePlayerHealth(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.BleedingDamage:
-                _playerStats.IncreaseBleedingDamage(upgrade.UpgradingValue);
+                _playerStats.IncreaseBleedingDamage(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.BleedingChance:
-                _playerStats.IncreaseBleedingChance(upgrade.UpgradingValue);
+                _playerStats.IncreaseBleedingChance(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.PoisonDamage:
-                _playerStats.IncreasePoisonDamage(upgrade.UpgradingValue);
+                _playerStats.IncreasePoisonDamage(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.RotationSpeed:
-                _playerStats.IncreaseRotationSpeed(upgrade.UpgradingValue);
+                _playerStats.IncreaseRotationSpeed(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.ParryDamageInPercents:
-                _playerStats.IncreaseParryDamage(upgrade.UpgradingValue);
+                _playerStats.IncreaseParryDamage(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.CritDamage:
-                _playerStats.IncreaseCritDamage(upgrade.UpgradingValue);
+                _playerStats.IncreaseCritDamage(upgrade.UpgradingValue, true);
                 break;
             case StatsUpgradeType.CritChance:
-                _playerStats.IncreaseCritChance(upgrade.UpgradingValue);
+                _playerStats.IncreaseCritChance(upgrade.UpgradingValue, true);
                 break;
         }
     }

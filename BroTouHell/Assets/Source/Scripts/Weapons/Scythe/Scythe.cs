@@ -13,6 +13,6 @@ public class Scythe : WeaponGeneral
     }
     protected override void ScaleStats()
     {
-        _playerStats.IncreasePoisonDamage(_scalePower);
+        _playerStats.IncreasePoisonDamage(_scalePower, false);
     }
 }

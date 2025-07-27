@@ -50,17 +50,22 @@ public class EnemyGenerator : MonoBehaviour
 
         print($"Количесто моих паверапов - {_playerStatsCount}, Количество паверапов противника - {_enemiesPowerUps}");
 
-        for (int i = 0; i <= _enemiesPowerUps; i++)
+        for (int i = 0; i < _enemiesPowerUps; i++)
         {
             print("Цикл работает!");
-            if (UnityEngine.Random.Range(0f, 100f) < _buildStatChances)
+            float _randomNumber = UnityEngine.Random.Range(0f, 100f);
+            print(_randomNumber);
+            if (_randomNumber < _buildStatChances)
             {
-                _upgrade.UpgradeTarget(_builds.GetListById(_weaponBuildsById.GetRandomId(_weaponId)).GetStatsUpgradeById(UnityEngine.Random.Range(0, _builds.GetListCountById(_weaponId))), _enemyHealth);
-                print("Противник стал сильнее!");
+                int _randomWeaponBuild = _weaponBuildsById.GetRandomId(_weaponId);
+                int _randomPowerUpId = UnityEngine.Random.Range(0, _builds.GetListCountById(_weaponId));
+                _upgrade.UpgradeTarget(_builds.GetListById(_randomWeaponBuild).GetStatsUpgradeById(_randomPowerUpId), _enemyHealth);
+                print($"Противник стал сильнее!, на него было применено улучшение: {_builds.GetListById(_randomWeaponBuild).GetStatsUpgradeById(_randomPowerUpId)} из билда {_randomWeaponBuild}, id улучшения в билде - {_randomPowerUpId}");
             }
             else
             {
-                _characterStats.IncreasePlayerHealth(i * 2);
+                print("Противник получил бафф вне билда (повысил хп)");
+                _characterStats.IncreasePlayerHealth(i * 2, true);
             }
         }
     }
