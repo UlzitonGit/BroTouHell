@@ -17,6 +17,10 @@ public class Scythe : WeaponGeneral
     }
     public override void ScaleStats()
     {
+        if (_playerStats == null)
+        {
+            _playerStats = gameObject.transform.parent.parent.GetComponent<PlayerStats>();
+        }
         _playerStats.IncreasePoisonDamage(_scalePower, false);
     }
 }
