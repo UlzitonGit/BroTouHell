@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Damage Upgrade 1
   m_EditorClassIdentifier: 
   Type: 0
-  UpgradingValue: 10
+  UpgradingValue: 6
   Description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0443\u0440\u043E\u043D \u0430\u0442\u0430\u043A\u0438 \u043D\u0430 10"
+    \u0443\u0440\u043E\u043D \u0430\u0442\u0430\u043A\u0438 \u043D\u0430 6"

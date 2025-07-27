@@ -4,10 +4,12 @@ public class Dagger : WeaponGeneral
 {
     [SerializeField] private float _scalePower = 10f;
     [SerializeField] private float _baseRotationSpeedAmplification = 115f;
+    [SerializeField] private float _baseBleedingDamage;
 
     private void Start()
     {
         StartingBuff();
+        _playerStats.IncreaseRotationSpeed(_baseBleedingDamage, false);
     }
 
     public override void StartingBuff()

@@ -5,15 +5,17 @@ public class Scythe : WeaponGeneral
 {
     [SerializeField] private float _scalePower = 0.1f;
     [SerializeField] private StatusEffectSO _poison;
+    [SerializeField] private float _defaultPoisonDamage;
     private void Start()
     {
         StartingBuff();
+        _playerStats.IncreasePoisonDamage(_defaultPoisonDamage, false);
     }
 
     public override void StartingBuff()
     {
         _weaponStatusEffects.AddNewEffect(_poison);
-        print($"Эффект Poison добавлен на оружие {gameObject.transform.parent.parent}, {_weaponStatusEffects.GetStatusEffects().Count} - текущее количество эффектов");
+        print($"пїЅпїЅпїЅпїЅпїЅпїЅ Poison пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ {gameObject.transform.parent.parent}, {_weaponStatusEffects.GetStatusEffects().Count} - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
     }
     public override void ScaleStats()
     {
