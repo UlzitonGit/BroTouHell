@@ -21,6 +21,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float _minimalPowerUpsProgression = 0.2f;
     [SerializeField] private float _maximalPowerUps = 1.1f;
     [SerializeField] private float _maximalPowerUpsProgression = 0.2f;
+    [SerializeField] private float _hpProgressionModifier = 1.5f;
     private NewLevel _levelSystem;
 
     private int _playerStatsCount;
@@ -76,7 +77,7 @@ public class EnemyGenerator : MonoBehaviour
             else
             {
                 print("��������� ������� ���� ��� ����� (������� ��)");
-                _characterStats.IncreasePlayerHealth(i * 2, true);
+                _characterStats.IncreasePlayerHealth(_levelSystem.GetLevel() * _hpProgressionModifier, true);
             }
         }
     }
