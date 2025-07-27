@@ -490,11 +490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd132ac59980f5448a79a33bbc027231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPlayer: 0
   _playerDamage: 5
   _playerHealth: 50
   _bleedingDamage: 1
   _bleedingChance: 5
-  _poisonDamage: 0
+  _poisonDamage: 3
   _rotationSpeed: 315
   _parryDamageInPercents: 0
   _critChance: 5
@@ -984,6 +985,7 @@ MonoBehaviour:
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 10
   _baseRotationSpeedAmplification: 115
+  _baseBleedingDamage: 0
 --- !u!65 &5804279329953259335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1146,6 +1148,7 @@ MonoBehaviour:
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
   _scalePower: 3
   _poison: {fileID: 11400000, guid: 4841e359ec3bc3e46b9318fa801c1cf1, type: 2}
+  _defaultPoisonDamage: 1
 --- !u!65 &6540219023834864614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1315,8 +1318,8 @@ MonoBehaviour:
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 5
-  _baseParryDamageAmplification: 40
+  _scalePower: 10
+  _baseParryDamageAmplification: 60
 --- !u!65 &6029775424883177752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1476,7 +1479,7 @@ MonoBehaviour:
   _enemyTag: Player
   _enemyWeaponTag: PlayerWeapon
   _hitVfx: {fileID: 7977224796045492825, guid: 0d92e27557a4e084ea36bd198553fecc, type: 3}
-  _scalePower: 1
+  _scalePower: 1.5
   _baseDamageAmplification: 5
 --- !u!65 &3631646444760962254
 BoxCollider:

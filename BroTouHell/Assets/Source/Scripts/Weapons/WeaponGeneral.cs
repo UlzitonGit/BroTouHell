@@ -34,7 +34,7 @@ public abstract class WeaponGeneral : MonoBehaviour
      }
      protected virtual void Rotating()
      {
-          _rotationPoint.Rotate(0, _playerStats.GetRotationSpeed() * Time.deltaTime * _rotateInverse, 0);
+          _rotationPoint.Rotate(0f, 720f * (1 - Mathf.Exp(-_playerStats.GetRotationSpeed() * 0.00226f)) * Time.deltaTime, 0f);
      }
      
      protected virtual void Parry()
