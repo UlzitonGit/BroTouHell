@@ -21,10 +21,6 @@ public class NewLevel : MonoBehaviour
         _enemyGenerator = enemyGenerator;
         _stageCounterUI = stageCounterUI;
     }
-    private void Start()
-    {
-        _enemyGenerator.GenerateEnemy(_enemySpawnPoint1);
-    }
     public void NextLevel()
     {
         if (_level % _levelsInStage == 0 && _level != 0)
@@ -46,14 +42,18 @@ public class NewLevel : MonoBehaviour
     public void LevelSwap()
     {
         _level++;
+        _stageCounterUI.NextStage(_level + 1);
+    }
+
+    public void SpawnCharacters()
+    {
         _player.transform.position = _playerSpawnPoint.position;
         _enemyGenerator.GenerateEnemy(_enemySpawnPoint1);
-        if (_level % _levelsInStage == 0)
+        if (_level % _levelsInStage == 0 && _level != 0)
         {
             _enemyGenerator.GenerateEnemy(_enemySpawnPoint2);
         }
         _defeatedEnemies = 0;
-        _stageCounterUI.NextStage(_level + 1);
     }
 
     public void IncreaseDefeatedEnemies()

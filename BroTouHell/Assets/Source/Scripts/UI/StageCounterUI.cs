@@ -13,11 +13,14 @@ public class StageCounterUI : MonoBehaviour
     [SerializeField] private Animator _backPanel;
     [SerializeField] private Animator _cardAnimatorPanel;
     [SerializeField] private CardUpgradeRandomizer _cardUpgradeRandomizer;
+    bool _active = false;
+    private NewLevel _levelSystem;
     private SoundsPlayer _soundsPlayer;
     [Inject]
-    private void Constructor(SoundsPlayer soundsPlayer)
+    private void Constructor(SoundsPlayer soundsPlayer, NewLevel levelSystem)
     {
         _soundsPlayer = soundsPlayer;
+        _levelSystem = levelSystem;
    
     }
     private void Start()
@@ -35,9 +38,9 @@ public class StageCounterUI : MonoBehaviour
     }
     IEnumerator Duration()
     {
-        _player.SetActive(false);
         _enemy.SetActive(false);
         yield return new WaitForSeconds(2f);
+        _player.SetActive(false);
         _backPanel.gameObject.SetActive(true);
         ShowCards();
     }
@@ -66,6 +69,8 @@ public class StageCounterUI : MonoBehaviour
             _countDownText.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
+        print("aaa");
+        _levelSystem.SpawnCharacters();
         _backPanel.SetTrigger("Hide");
         _player.SetActive(true);
         _enemy.SetActive(true);

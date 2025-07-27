@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class HealthGeneral : MonoBehaviour
 {
@@ -26,9 +27,9 @@ public class HealthGeneral : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
-        //if(damage == 0) return;
+        if(damage == 0) return;
         _health -= damage;
-        _damageText.text = damage.ToString();
+        _damageText.text = Math.Round(damage, 1).ToString();
         _textAnimator.SetTrigger("Damage");
         _animator.SetTrigger("Hit");
         _soundsPlayer.PlayGetDamage();
