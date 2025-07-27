@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class HealthGeneral : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class HealthGeneral : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _deathParticle;
     [SerializeField] private TextMeshPro _damageText;
+    [SerializeField] private Image _healthBar;
     private Animator _textAnimator;
     private bool _isPlayer;
     private bool _isDead;
     private NewLevel _levelManager;
     private SoundsPlayer _soundsPlayer;
     private PlayerStats _playerStats;
+    private float _maxHealth;
     
     private void Start()
     {
@@ -29,6 +32,8 @@ public class HealthGeneral : MonoBehaviour
     {
         if(damage == 0) return;
         _health -= damage;
+        _maxHealth = _playerStats.GetPlayerHealth();
+        _healthBar.fillAmount = _health / _maxHealth;
         _damageText.text = Math.Round(damage, 1).ToString();
         _textAnimator.SetTrigger("Damage");
         _animator.SetTrigger("Hit");
@@ -41,10 +46,13 @@ public class HealthGeneral : MonoBehaviour
         if (full)
         {
             _health = _playerStats.GetPlayerHealth();
+            _healthBar.fillAmount = 1;
         }
         else
         {
             _health += heal;
+            _maxHealth = _playerStats.GetPlayerHealth();
+            _healthBar.fillAmount = _health / _maxHealth;
         }
     }
 

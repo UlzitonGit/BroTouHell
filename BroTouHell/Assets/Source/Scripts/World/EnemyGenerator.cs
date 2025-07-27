@@ -55,15 +55,15 @@ public class EnemyGenerator : MonoBehaviour
 
         for (int i = 0; i < _enemiesWeaponStacks; i++)
         {
-            print($"Базовый скейл произведен! Итерация - {i}");
+            print($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ! пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - {i}");
             _weaponsArray[_weaponId].GetComponent<WeaponGeneral>().ScaleStats();
         }
 
-        print($"Количесто моих паверапов - {_playerStatsCount}, Количество паверапов противника - {_enemiesPowerUps}");
+        print($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - {_playerStatsCount}, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - {_enemiesPowerUps}");
 
         for (int i = 0; i < _enemiesPowerUps; i++)
         {
-            print("Цикл работает!");
+            print("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!");
             float _randomNumber = UnityEngine.Random.Range(0f, 100f);
             print(_randomNumber);
             if (_randomNumber < _buildStatChances)
@@ -71,18 +71,18 @@ public class EnemyGenerator : MonoBehaviour
                 int _randomWeaponBuild = _weaponBuildsById.GetRandomId(_weaponId);
                 int _randomPowerUpId = UnityEngine.Random.Range(0, _builds.GetListCountById(_weaponId));
                 _upgrade.UpgradeTarget(_builds.GetListById(_randomWeaponBuild).GetStatsUpgradeById(_randomPowerUpId), _enemyHealth);
-                print($"Противник стал сильнее!, на него было применено улучшение: {_builds.GetListById(_randomWeaponBuild).GetStatsUpgradeById(_randomPowerUpId)} из билда {_randomWeaponBuild}, id улучшения в билде - {_randomPowerUpId}");
+                print($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!, пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: {_builds.GetListById(_randomWeaponBuild).GetStatsUpgradeById(_randomPowerUpId)} пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ {_randomWeaponBuild}, id пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ - {_randomPowerUpId}");
             }
             else
             {
-                print("Противник получил бафф вне билда (повысил хп)");
+                print("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ)");
                 _characterStats.IncreasePlayerHealth(i * 2, true);
             }
         }
     }
     private void GetInfo(GameObject _newEnemy)
     {
-        if (_levelSystem.GetLevel() % _levelSystem.GetLevelsInStage() == 0 && _levelSystem.GetLevel() == 1)
+        if (_levelSystem.GetLevel() - 1 % _levelSystem.GetLevelsInStage() == 0 && _levelSystem.GetLevel() == 1)
         {
             _playerStatsCount = _player.GetComponent<PlayerStats>().GetPowerUpsCount();
             _playerWeaponStacks = _player.GetComponent<PlayerStats>().GetWeaponStacksCount();
